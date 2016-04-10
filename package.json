@@ -16,6 +16,9 @@
     "test",
     "regex"
   ],
+  "dependencies": {
+    "wlog": "latest"
+  },
   "devDependencies": {
     "jshint": "^2.9.1"
   },

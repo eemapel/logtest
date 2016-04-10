@@ -2,29 +2,47 @@
 
 var fs = require("fs")
 var readline = require("readline")
+var wlog = require('wlog')
+
+wlog.tag("TESTLOG")
+
+// Normalize argument array
 var args = process.argv.slice(2)
 
 // Assume the first argument as the file
-filename = args[0]
+logfile = args[0]
+rulesfile = args[1]
 
-fs.exists(filename, (exists) => {
-    if (!exists) {
-        console.log("[Error] No file given to open")
-        process.exit(1)
-    }
+if (logfile === undefined || rulesfile === undefined)
+    help()
 
-    var buffer = readline.createInterface({
-        input: fs.createReadStream(filename)
-    })
+fs.exists(logfile, (exists) => {
+    if (!exists)
+        wlog.err("log-file not found: " + logfile)
 
-    buffer.on('line', function (line) {
-        var string = line.substring(line.indexOf("/") + 1, line.lastIndexOf("/"))
-        var re = new RegExp(string)
+   fs.exists(rulesfile, (exists) => {
+       if (!exists)
+           wlog.err("rules-file not found: " + rulesfile)
 
-        console.log("string : " + string)
-        console.log(re.test("..test.."))
+       var buffer = readline.createInterface({
+           input: fs.createReadStream(rulesfile)
+       })
 
-        process.exit(0)
+       buffer.on('line', function (line) {
+           var string = line.substring(line.indexOf("/") + 1, line.lastIndexOf("/"))
+           var re = new RegExp(string)
+
+           console.log("string : " + string)
+           console.log(re.test("..test.."))
+
+           process.exit(0)
+       })
     })
 })
+
+function help() {
+    wlog.note("Usage:")
+    wlog.note("$ logtest <log-file> <rules-file>")
+    process.exit(0)
+}
 

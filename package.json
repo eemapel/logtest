@@ -1,6 +1,6 @@
 {
   "name": "logtest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Log test tool",
   "main": "logtest.js",
   "bin": "./logtest.js",

@@ -1,0 +1,31 @@
+{
+  "name": "logtest",
+  "version": "1.0.0",
+  "description": "Log test tool",
+  "main": "logtest.js",
+  "bin": "./logtest.js",
+  "scripts": {
+    "test": "jshint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eemapel/logtest.git"
+  },
+  "keywords": [
+    "log",
+    "test",
+    "regex"
+  ],
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  },
+  "author": {
+    "name": "Marko Pellikka",
+    "email": "eemapel@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eemapel/logtest/issues"
+  },
+  "homepage": "https://github.com/eemapel/logtest#readme"
+}

@@ -1,4 +1,6 @@
 {
     // ignore semicolons
-    "asi": true
+    "asi": true,
+    // Allow ES6
+    "esversion": 6
 }

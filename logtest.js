@@ -4,11 +4,17 @@ var fs = require("fs")
 var readline = require("readline")
 var args = process.argv.slice(2)
 
-if (fs.existsSync(args[0])) {
-    console.log("file exists")
+// Assume the first argument as the file
+filename = args[0]
+
+fs.exists(filename, (exists) => {
+    if (!exists) {
+        console.log("[Error] No file given to open")
+        process.exit(1)
+    }
 
     var buffer = readline.createInterface({
-        input: fs.createReadStream(args[0])
+        input: fs.createReadStream(filename)
     })
 
     buffer.on('line', function (line) {
@@ -20,8 +26,5 @@ if (fs.existsSync(args[0])) {
 
         process.exit(0)
     })
-} else {
-    console.log("file missing")
-    process.exit(0)
-}
+})
 

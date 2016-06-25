@@ -16,6 +16,10 @@
     "test",
     "regex"
   ],
+  "engineStrict": true,
+  "engines": {
+      "node": ">=4.0.0"
+  },
   "dependencies": {
     "wlog": "latest"
   },

@@ -1,6 +1,6 @@
 {
   "name": "logtest",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Log test tool",
   "main": "logtest.js",
   "bin": "./logtest.js",
@@ -18,7 +18,7 @@
   ],
   "engineStrict": true,
   "engines": {
-      "node": ">=4.0.0"
+    "node": ">=4.0.0"
   },
   "dependencies": {
     "wlog": "latest"
